@@ -8,7 +8,7 @@
 
 <div align="center">
   <h3>
-    <a href="https://{your-demo-link.your-domain}">
+    <a href="https://fm-entertain-app.vercel.app/">
       Demo
     </a>
     <span> | </span>
@@ -89,7 +89,7 @@ $ npm run build
 # Run your unit tests [Vitest](https://vitest.dev/)
 $ npm run test:unit
 
-# Run your unit tests [Vitest](https://vitest.dev/)
+# Run your E2E tests [Cypress](https://cypress.io/)
 $ npm run build
 $ npm run test:e2e
 
@@ -98,9 +98,11 @@ $ npm run lint
 
 ```
 
-### Customize configuration
+### Customize Configuration
 
 See [Vite Configuration Reference](https://vitejs.dev/config/).
+See [Vitest Unit Testing](https://vitest.dev/config/)
+See [Cypress E2E Testing](https://docs.cypress.io/guides/references/configuration)
 
 ### Recommended IDE Setup
 
@@ -110,10 +112,8 @@ See [Vite Configuration Reference](https://vitejs.dev/config/).
 
 <!-- This section should list any articles or add-ons/plugins that helps you to complete the project. This is optional but it will help you in the future. For example: -->
 
-- [Vitest Unit Testing](https://vitest.dev/)
-- [Cypress E2E Testing](https://www.cypress.io/)
-- [A Complete Guide to Flexbox -by CSS-Tricks](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
-- [What the Flexbox!? -Course by Wes Bos](https://flexbox.io/)
+- [“Everything Developers Need To Know About Figma” article on Smashing Magazine](https://www.smashingmagazine.com/2020/09/figma-developers-guide/)
+- ["Introduction to Figma for Developers" video with Ryan Warner and Jason Lengstorf on Learn with Jason](https://www.learnwithjason.dev/introduction-to-figma-for-developers)
 - [Frontend Mentor](https://www.frontendmentor.io/)
 
 ## Contact
