@@ -100,9 +100,9 @@ $ npm run lint
 
 ### Customize Configuration
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-See [Vitest Unit Testing](https://vitest.dev/config/)
-See [Cypress E2E Testing](https://docs.cypress.io/guides/references/configuration)
+- [Vite Configuration Reference](https://vitejs.dev/config/).
+- [Vitest Unit Testing](https://vitest.dev/config/).
+- [Cypress E2E Testing](https://docs.cypress.io/guides/references/configuration).
 
 ### Recommended IDE Setup
 
