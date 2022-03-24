@@ -1,0 +1,9 @@
+<template>
+  <div>
+    <!-- 
+      Header
+        Navbar 
+      -->
+    <slot></slot>
+  </div>
+</template>
