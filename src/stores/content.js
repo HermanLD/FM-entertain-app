@@ -1,16 +1,25 @@
 import { defineStore } from "pinia";
+import { useUserStore } from "./user";
 
 export const useContentStore = defineStore({
   id: "content",
   state: () => ({
-    movieList: [],
-    tvList: [],
+    contentList: {},
   }),
   getters: {
-    getMovieList: (state) => state.movieList,
-    getTvList: (state) => state.tvList,
+    getContentList: (state) => state.contentList,
+    getMovieList: (state) => state.contentList,
+    getTvList: (state) => state.contentList,
+    getBookmarkedList: (state) => {
+      return state.contentList.filter((media) => media.isBookmarked === true);
+    },
   },
   actions: {
-    loadContent() {},
+    loadContent() {
+      const user = useUserStore();
+      user.getBookmarkedList.forEach((mediaId) => {
+        this.contentList[mediaId].isBookmarked = true;
+      });
+    },
   },
 });

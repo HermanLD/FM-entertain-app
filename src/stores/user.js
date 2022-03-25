@@ -3,15 +3,20 @@ import { defineStore } from "pinia";
 export const useUserStore = defineStore({
   id: "user",
   state: () => ({
-    firstName: "",
-    lastName: "",
-    userName: "",
-    email: "",
-    image: "",
+    firstName: "Guest",
+    lastName: "Test",
+    userName: "testGuest8",
+    email: "guestt@test.com",
+    image: "@/assets/image-avatar.png",
     bookmarkedContent: [],
   }),
-  getters: {},
+  getters: {
+    bookmarkedContentIds: (state) => {
+      return state.bookmarkedContent;
+    },
+  },
   actions: {
-    loadContent() {},
+    loadUser() {},
+    initLoginCheck() {},
   },
 });
