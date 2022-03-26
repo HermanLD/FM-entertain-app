@@ -1,6 +1,9 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 
+// TODO - check if user is logged in
+// TODO - Redirect if not
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -8,13 +11,7 @@ const router = createRouter({
       path: "/",
       name: "home",
       component: HomeView,
-      // TODO - check if user is logged in
-      // TODO - Redirect if not
     },
-    // TODO - MOVIE PAGE
-    // TODO - TV PAGE
-    // TODO - BOOKMARKED PAGE
-    // TODO - SIGNIN PAGE
     {
       path: "/movies",
       name: "movies",
@@ -36,7 +33,7 @@ const router = createRouter({
     {
       path: "/sign-in",
       name: "sign-in",
-      component: () => import("../views/SignInView.vue"),
+      component: () => import("../views/LoginView.vue"),
     },
   ],
 });
