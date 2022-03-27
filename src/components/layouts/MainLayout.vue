@@ -1,12 +1,15 @@
+<script setup>
+import NavBar from "../Navbar.vue";
+</script>
+
 <template>
   <div>
     <!-- 
       Header
         Navbar 
       -->
-    <header>
-      <p>THIS IS THE HEADER</p>
-    </header>
+    <NavBar></NavBar>
+
     <slot></slot>
   </div>
 </template>
