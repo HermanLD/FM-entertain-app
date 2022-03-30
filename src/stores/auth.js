@@ -16,8 +16,8 @@ export const useAuthStore = defineStore({
       // TODO - Check localStorage for token
       // TODO - If there is a token ---> fetch user
       // TODO - then isLoggedIn = true
-      // ??EX - user.loadUser(email, token);
-      user.loadUser();
+      // ??EX - user.loadUser({email, token});
+      user.loadUser({ email: "test@test.com", token: "qwerty1234" });
       // TODO - If no token ---> isLoggedIn = false
       // this.toggleLoginStatus();
     },

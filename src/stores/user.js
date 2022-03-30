@@ -13,16 +13,20 @@ export const useUserStore = defineStore({
     },
   },
   actions: {
-    loadUser(email = "test@test.com", token = "qwerty1234") {
+    loadUser(userObj) {
+      console.log(userObj);
       // TODO - Fetch user
-      console.log(email);
-      console.log(token);
       console.log(userData);
       // TODO - Store user data
       this.image = userData.image;
       // this.image = userData.image;
       // TODO - Add real bookmarked content later
       // this.bookmarkedContent = userData.bookmarkedContent;
+    },
+    signInUser(userObj) {
+      console.log(userObj);
+      // TODO - Send user data
+      // TODO - If '200', toggle login status & add data to local storage
     },
   },
 });
