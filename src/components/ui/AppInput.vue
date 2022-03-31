@@ -18,18 +18,14 @@ const prop = defineProps({
     type: String,
     default: "text",
   },
-  error: {
-    type: Boolean,
-    default: false,
-  },
   errorMsg: {
     type: String,
   },
 });
 
 const classObj = computed(() => ({
-  "border-neutral-1": !prop.error,
-  "border-primary": prop.error,
+  "border-neutral-1": !prop.errorMsg,
+  "border-primary": prop.errorMsg,
 }));
 </script>
 
@@ -45,8 +41,10 @@ const classObj = computed(() => ({
       :type="inputType"
       :value="modelValue"
     />
-    <span v-if="prop.error" class="absolute right-4 text-primary text-right">{{
-      errorMsg
-    }}</span>
+    <span
+      v-if="prop.errorMsg"
+      class="absolute right-4 text-primary text-right"
+      >{{ prop.errorMsg }}</span
+    >
   </label>
 </template>

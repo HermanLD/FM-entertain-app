@@ -1,32 +1,38 @@
 import { defineStore } from "pinia";
-import userData from "../data/user.json";
+import userTestData from "../data/user.json";
 
 export const useUserStore = defineStore({
   id: "user",
   state: () => ({
     image: "",
+    formData: null,
     // bookmarkedContent: [],
   }),
-  getters: {
-    bookmarkedContentIds: (state) => {
-      return state.bookmarkedContent;
-    },
-  },
+  // getters: {
+  //   bookmarkedContentIds: (state) => {
+  //     return state.bookmarkedContent;
+  //   },
+  // },
   actions: {
-    loadUser(userObj) {
-      console.log(userObj);
+    loadUser() {
+      console.log(this.formData);
+      console.log(userTestData);
+      this.image = userTestData.image;
       // TODO - Fetch user
-      console.log(userData);
       // TODO - Store user data
-      this.image = userData.image;
       // this.image = userData.image;
       // TODO - Add real bookmarked content later
       // this.bookmarkedContent = userData.bookmarkedContent;
+      // TODO - Clear formData
     },
-    signInUser(userObj) {
-      console.log(userObj);
+    signInUser() {
+      console.log(this.formData);
       // TODO - Send user data
       // TODO - If '200', toggle login status & add data to local storage
+      // TODO - Clear formData
+    },
+    updateFormData(newFormData) {
+      this.formData = newFormData;
     },
   },
 });
