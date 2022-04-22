@@ -33,7 +33,7 @@ const classObj = computed(() => ({
   <label class="relative block max-w-[336px] mb-6">
     <span class="sr-only">{{ prop.label }}</span>
     <input
-      @input="$emit('update:modelValue', $event.target.value)"
+      @blur="$emit('update:modelValue', $event.target.value)"
       class="pl-4 pb-3.5 w-full body-m text-white border-b caret-primary bg-transparent focus:border-white focus:outline-none"
       :class="classObj"
       :name="name"

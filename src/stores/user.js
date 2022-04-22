@@ -1,38 +1,201 @@
 import { defineStore } from "pinia";
-import userTestData from "../data/user.json";
+import { useAuthStore } from "./auth";
+
+const url = import.meta.env.VITE_BACKEND_URL;
 
 export const useUserStore = defineStore({
   id: "user",
   state: () => ({
-    image: "",
-    formData: null,
-    // bookmarkedContent: [],
+    avatar: undefined,
+    email: undefined,
   }),
-  // getters: {
-  //   bookmarkedContentIds: (state) => {
-  //     return state.bookmarkedContent;
-  //   },
-  // },
   actions: {
-    loadUser() {
-      console.log(this.formData);
-      console.log(userTestData);
-      this.image = userTestData.image;
-      // TODO - Fetch user
-      // TODO - Store user data
-      // this.image = userData.image;
-      // TODO - Add real bookmarked content later
-      // this.bookmarkedContent = userData.bookmarkedContent;
-      // TODO - Clear formData
+    setUser(userData) {
+      this.avatar = userData.avatar;
+      this.email = userData.email;
     },
-    signInUser() {
-      console.log(this.formData);
-      // TODO - Send user data
-      // TODO - If '200', toggle login status & add data to local storage
-      // TODO - Clear formData
+    async initUserLogin() {
+      const auth = useAuthStore();
+      const token = auth.checkAuthToken();
+
+      try {
+        if (!token) throw new Error("No token!");
+
+        const bearer = `Bearer ${token}`;
+        const res = await fetch(`${url}/users/me`, {
+          method: "GET", // or 'PUT'
+          headers: {
+            Authorization: bearer,
+          },
+        });
+        const resData = await res.json();
+
+        if (resData.error) throw new Error(resData.error);
+
+        this.setUser(resData.user);
+        auth.toggleLoginStatus(true);
+        return true;
+      } catch (e) {
+        console.log(e);
+        return false;
+      }
     },
-    updateFormData(newFormData) {
-      this.formData = newFormData;
+    async createUser(userData) {
+      // ? - userData = { email: "ford@test.com", password: "truck1234" }
+      const auth = useAuthStore();
+
+      try {
+        const res = await fetch(`${url}/users`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(userData),
+        });
+        const resData = await res.json();
+
+        if (resData.error) throw new Error(resData.error);
+
+        auth.setAuthToken(resData.token);
+        auth.toggleLoginStatus(true);
+        this.setUser(resData.user);
+      } catch (e) {
+        console.log(e);
+      }
+    },
+    async logInUser(userData) {
+      // ? - userData = { email: "ford@test.com", password: "truck1234" }
+      const auth = useAuthStore();
+
+      try {
+        const res = await fetch(`${url}/users/login`, {
+          method: "POST", // or 'PUT'
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(userData),
+        });
+        const resData = await res.json();
+
+        if (resData.error) throw new Error(resData.error);
+
+        console.log(resData);
+
+        auth.setAuthToken(resData.token);
+        auth.toggleLoginStatus(true);
+        this.setUser(resData.user);
+      } catch (e) {
+        console.log(e);
+      }
+    },
+    async logOutUser() {
+      const auth = useAuthStore();
+      const token = auth.checkAuthToken();
+
+      console.log(token);
+
+      try {
+        if (!token) throw new Error("No token!");
+
+        const bearer = `Bearer ${token}`;
+
+        await fetch(`${url}/users/logout`, {
+          method: "POST", // or 'PUT'
+          headers: {
+            Authorization: bearer,
+          },
+        });
+
+        // ? - Clear user app state
+        this.setUser({ email: undefined, avatar: undefined });
+        auth.clearAuthToken();
+        auth.toggleLoginStatus(false);
+      } catch (e) {
+        console.log(e);
+      }
+    },
+    async addBookmark(contentId) {
+      const auth = useAuthStore();
+
+      const token = auth.checkAuthToken();
+
+      try {
+        if (!token) throw new Error("No token!");
+        const bearer = `Bearer ${token}`;
+
+        await fetch(`${url}/users/bookmarks`, {
+          method: "POST", // or 'PUT'
+          headers: {
+            Authorization: bearer,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ contentId }),
+        });
+      } catch (e) {
+        console.log(e);
+      }
+    },
+    async deleteBookmark(contentId) {
+      const auth = useAuthStore();
+
+      const token = auth.checkAuthToken();
+
+      try {
+        if (!token) throw new Error("No token!");
+        const bearer = `Bearer ${token}`;
+
+        await fetch(`${url}/users/bookmarks`, {
+          method: "DELETE", // or 'PUT'
+          headers: {
+            Authorization: bearer,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ contentId }),
+        });
+      } catch (e) {
+        console.log(e);
+      }
+    },
+    async logoutAll() {
+      const auth = useAuthStore();
+      const token = auth.checkAuthToken();
+      try {
+        if (!token) throw new Error("No token!");
+        const bearer = `Bearer ${token}`;
+
+        await fetch(`${url}/users/logoutAll`, {
+          method: "POST", // or 'PUT'
+          headers: {
+            Authorization: bearer,
+          },
+        });
+        // ? - Clear user app state
+        this.setUser({ email: undefined, avatar: undefined });
+        auth.clearAuthToken();
+        auth.toggleLoginStatus(false);
+      } catch (e) {
+        console.log(e);
+      }
+    },
+    async uploadAvatar() {
+      const token = auth.checkAuthToken();
+      const auth = useAuthStore();
+      try {
+        if (!token) throw new Error("No token!");
+        const bearer = `Bearer ${token}`;
+
+        await fetch(`${url}/users/avatar`, {
+          method: "POST", // or 'PUT'
+          headers: {
+            Authorization: bearer,
+            //! "Content-Type": "application/json",
+          },
+          body: new FormData(),
+          //! body: JSON.stringify({ contentId }),
+        });
+      } catch (e) {
+        console.log(e);
+      }
     },
   },
 });

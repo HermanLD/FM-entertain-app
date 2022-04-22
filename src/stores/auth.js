@@ -1,28 +1,29 @@
 import { defineStore } from "pinia";
-import { useUserStore } from "./user";
+
+const localTokenName = import.meta.env.VITE_LOCALSTORE_TOKEN;
 
 export const useAuthStore = defineStore({
   id: "auth",
   state: () => ({
     // TODO - switch to false for production
-    isLoggedIn: true,
+    isLoggedIn: false,
   }),
   getters: {
     getLoginStatus: (state) => state.isLoggedIn,
   },
   actions: {
-    initLoginCheck() {
-      const user = useUserStore();
-      // TODO - Check localStorage for token
-      // TODO - If there is a token ---> fetch user
-      // TODO - then isLoggedIn = true
-      // ??EX - user.loadUser({email, token});
-      user.loadUser({ email: "test@test.com", token: "qwerty1234" });
-      // TODO - If no token ---> isLoggedIn = false
-      // this.toggleLoginStatus();
+    setAuthToken(token) {
+      localStorage.setItem(localTokenName, token);
     },
-    toggleLoginStatus() {
-      this.isLoggedIn = !this.isLoggedIn;
+    checkAuthToken() {
+      // ? - returns token or null
+      return localStorage.getItem(localTokenName);
+    },
+    clearAuthToken() {
+      localStorage.removeItem(localTokenName);
+    },
+    toggleLoginStatus(newState) {
+      this.isLoggedIn = newState;
     },
   },
 });

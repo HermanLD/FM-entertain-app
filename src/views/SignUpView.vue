@@ -1,9 +1,9 @@
 <script setup>
-import LoginForm from "@/components/forms/LoginForm.vue";
+import SignUpForm from "@/components/forms/SignUpForm.vue";
 </script>
 
 <template>
   <main class="flex justify-center items-center h-screen">
-    <LoginForm />
+    <SignUpForm />
   </main>
 </template>
