@@ -19,6 +19,14 @@ module.exports = {
         base: "0.9375rem",
         "3xl": "2rem",
       },
+      gridTemplateColumns: {
+        "l-desktop": "auto 1fr",
+        "nav-mobile": "auto 1fr auto",
+      },
+      gridTemplateRows: {
+        "l-mobile": "auto 1fr",
+        "nav-desktop": "auto auto 1fr",
+      },
     },
   },
   plugins: [],

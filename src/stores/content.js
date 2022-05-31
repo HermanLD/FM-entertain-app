@@ -12,13 +12,19 @@ export const useContentStore = defineStore({
   }),
   getters: {
     getContentList: (state) => state.contentList,
+    getTrendingList: (state) => {
+      const newList = state.contentList.filter(
+        (content) => content.isTrending === true
+      );
+      return newList;
+    },
   },
   actions: {
     async loadContent() {
       const auth = useAuthStore();
       const token = auth.checkAuthToken();
 
-      if (this.contentList.length === 0)
+      if (this.contentList.length > 0)
         return console.log("Content already loaded");
       try {
         this.isLoading = true;
@@ -33,8 +39,10 @@ export const useContentStore = defineStore({
         this.setContent(resData);
         this.isLoading = false;
         console.log(resData);
+        return true;
       } catch (e) {
         console.log(e);
+        return false;
       }
     },
     async bookmarkContent(contentLoot) {

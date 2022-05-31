@@ -7,7 +7,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <article class="relative">
+  <article class="relative h-[29.375rem]">
     <img
       class="absolute inset-0 w-full"
       sizes="(min-width: 900px) 560w, 328w"

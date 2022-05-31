@@ -20,6 +20,9 @@ const logoutAllUsers = async () => {
 const initUserLogin = async () => {
   const isLogged = await user.initUserLogin();
   if (isLogged) router.push({ name: "home" });
+
+  const contentLoaded = await content.loadContent();
+  console.log(contentLoaded);
 };
 
 initUserLogin();
@@ -36,7 +39,3 @@ initUserLogin();
     <div><p>LOADING...</p></div>
   </div>
 </template>
-
-<style>
-@import "@/assets/styles/base.css";
-</style>

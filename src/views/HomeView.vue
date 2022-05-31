@@ -1,5 +1,6 @@
 <script setup>
 import MainLayout from "@/components/layouts/MainLayout.vue";
+import TrendingRow from "@/components/content/TrendingRow.vue";
 import { useContentStore } from "../stores/content";
 
 const content = useContentStore();
@@ -13,6 +14,7 @@ content.loadContent();
       <h1>THIS IS HOME BASE!!!!</h1>
       <!-- <SearchBar /> -->
       <!-- <TrendingRow /> -->
+      <TrendingRow></TrendingRow>
       <!-- <ContentGrid /> -->
     </main>
   </MainLayout>
