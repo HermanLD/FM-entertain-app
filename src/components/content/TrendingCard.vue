@@ -7,9 +7,9 @@ const props = defineProps({
 </script>
 
 <template>
-  <article class="relative h-[29.375rem]">
+  <article class="relative bg-teal-400 rounded-lg overflow-hidden">
     <img
-      class="absolute inset-0 w-full"
+      class="w-full"
       sizes="(min-width: 900px) 560w, 328w"
       alt="Content title image"
       :src="$image(props.content.thumbnail.regular.small)"
@@ -17,11 +17,13 @@ const props = defineProps({
         props.content.thumbnail.regular.large
       )} 560w`"
     />
-    <p>
-      <span>{{ props.year }}</span
-      >&#183;<span>{{ props.category }}</span
-      >&#183;<span>{{ props.rating }}</span>
-    </p>
-    <p>{{ props.title }}</p>
+    <div class="absolute bottom-0 left-0 text-white">
+      <p>
+        <span>{{ props.content.year }}</span
+        >&#183;<span>{{ props.content.category }}</span
+        >&#183;<span>{{ props.content.rating }}</span>
+      </p>
+      <p>{{ props.content.title }}</p>
+    </div>
   </article>
 </template>
