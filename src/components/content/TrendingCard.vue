@@ -4,6 +4,8 @@ const props = defineProps({
     type: Object,
   },
 });
+
+// TODO - responsive text and spacing
 </script>
 
 <template>
@@ -17,13 +19,15 @@ const props = defineProps({
         props.content.thumbnail.regular.large
       )} 560w`"
     />
-    <div class="absolute bottom-0 left-0 text-white">
-      <p>
-        <span>{{ props.content.year }}</span
-        >&#183;<span>{{ props.content.category }}</span
-        >&#183;<span>{{ props.content.rating }}</span>
+    <div class="absolute bottom-0 left-0 pb-6 pl-6">
+      <p class="text-neutral-1 text-[12px] font-sans">
+        {{ props.content.year }}<span class="mx-2">&#183;</span
+        >{{ props.content.category }}<span class="mx-2">&#183;</span
+        >{{ props.content.rating }}
       </p>
-      <p>{{ props.content.title }}</p>
+      <p class="text-white font-sans font-medium body-m">
+        {{ props.content.title }}
+      </p>
     </div>
   </article>
 </template>
