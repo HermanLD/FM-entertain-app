@@ -10,6 +10,7 @@ module.exports = {
         dark: "#10141E",
         white: "hsl(0, 0%, 100%)",
         "white-op": "hsl(0, 0%, 100%, 0.5)",
+        "dark-op": "hsl(223, 30%, 9%, 0.5)",
       },
       fontFamily: {
         sans: ["Outfit", "sans-serif"],

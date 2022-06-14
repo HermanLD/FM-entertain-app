@@ -12,12 +12,12 @@ console.log(content.getTrendingList);
   <Swiper
     :slidesPerView="'auto'"
     :autoHeight="true"
-    :space-between="30"
+    :space-between="15"
     :pagination="{ clickable: true }"
   >
     <SwiperSlide
       v-for="item in content.getTrendingList"
-      class="w-[40%]"
+      class="w-[75%] lg:w-[40%]"
       :key="item._id"
     >
       <TrendingCard :content="item"></TrendingCard>

@@ -1,8 +1,8 @@
 <script setup>
-import IconNavHome from "./icons/IconNavHome.vue";
-import IconNavMovie from "./icons/IconNavMovies.vue";
-import IconNavTv from "./icons/IconNavTv.vue";
-import IconNavBookmark from "./icons/IconNavBookmark.vue";
+import IconNavHome from "@/components/icons/IconNavHome.vue";
+import IconNavMovie from "@/components/icons/IconNavMovies.vue";
+import IconNavTv from "@/components/icons/IconNavTv.vue";
+import IconNavBookmark from "@/components/icons/IconNavBookmark.vue";
 
 import { useUserStore } from "@/stores/user";
 
