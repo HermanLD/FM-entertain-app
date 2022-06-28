@@ -34,3 +34,23 @@
     @apply text-xs;
   }
 }
+
+.trending-card-ctrls > button {
+  @apply opacity-0;
+}
+
+.trending-card-ctrls:hover > button {
+  @apply opacity-100;
+}
+
+.trending-card-bookmark {
+  @apply bg-dark-op hover:bg-white;
+}
+
+.trending-card-bookmark:hover path {
+  stroke: theme("colors.dark");
+}
+
+.trending-card-checkbox:checked + * path {
+  fill: theme("colors.white");
+}

@@ -38,7 +38,6 @@ export const useContentStore = defineStore({
 
         this.setContent(resData);
         this.isLoading = false;
-        console.log(resData);
         return true;
       } catch (e) {
         console.log(e);

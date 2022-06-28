@@ -1,23 +1,23 @@
 <script setup>
 import MainLayout from "@/components/layouts/MainLayout.vue";
 import TrendingRow from "@/components/content/TrendingRow.vue";
-import { useContentStore } from "../stores/content";
-
-const content = useContentStore();
-
-content.loadContent();
+import ContentGrid from "@/components/content/ContentGrid.vue";
 </script>
 
 <template>
   <MainLayout>
-    <main class="w-full max-h-full bg-lime-900">
+    <main class="w-full max-h-full">
+      <!-- <SearchBar /> -->
+      <!-- <TrendingRow /> -->
       <h1 class="text-white font-sans font-light text-[1.25rem] sm:text-3xl">
         Trending
       </h1>
-      <!-- <SearchBar /> -->
-      <!-- <TrendingRow /> -->
       <TrendingRow></TrendingRow>
       <!-- <ContentGrid /> -->
+      <h2 class="text-white font-sans font-light text-[1.25rem] sm:text-3xl">
+        Recommended for you
+      </h2>
+      <ContentGrid></ContentGrid>
     </main>
   </MainLayout>
 </template>

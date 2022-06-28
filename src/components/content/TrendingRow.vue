@@ -4,8 +4,6 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 import TrendingCard from "./TrendingCard.vue";
 
 const content = useContentStore();
-
-console.log(content.getTrendingList);
 </script>
 
 <template>

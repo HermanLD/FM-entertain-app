@@ -8,7 +8,7 @@ const props = defineProps({
   },
 });
 
-// TODO - responsive text and spacing
+const isChecked = false;
 </script>
 
 <template>
@@ -23,21 +23,27 @@ const props = defineProps({
       )} 560w`"
     />
     <div
-      class="trending-card-ctrls absolute inset-0 flex flex-col justify-between w-full h-full p-6 hover:bg-dark-op"
+      class="trending-card-ctrls absolute inset-0 grid grid-rows-3 w-full h-full p-6 hover:bg-dark-op"
     >
       <!-- Bookmark / checkbox -->
       <label
-        class="trending-card-bookmark p-3 self-end rounded-full cursor-pointer"
+        class="trending-card-bookmark p-3 justify-self-end self-start rounded-full cursor-pointer"
       >
-        <input class="trending-card-checkbox sr-only" type="checkbox" checked />
+        <input
+          class="trending-card-checkbox sr-only"
+          type="checkbox"
+          :checked="isChecked"
+        />
         <IconBookmark />
       </label>
       <!-- Overlay / Play Button -->
-      <button class="items-center p-2.5 self-center rounded-full bg-white-op">
+      <button
+        class="flex items-center p-2.5 place-self-center rounded-full bg-white-op"
+      >
         <IconPlay /><span class="inline-block mr-3 ml-5">Play</span>
       </button>
       <!-- Title & info -->
-      <div>
+      <div class="justify-self-start self-end">
         <p class="text-neutral-1 text-[12px] font-sans font-light sm:text-base">
           {{ props.content.year }}<span class="mx-2">&#183;</span
           >{{ props.content.category }}<span class="mx-2">&#183;</span
@@ -51,13 +57,13 @@ const props = defineProps({
   </article>
 </template>
 
-<style>
+<!-- <style>
 .trending-card-ctrls > button {
-  @apply hidden;
+  @apply opacity-0;
 }
 
 .trending-card-ctrls:hover > button {
-  @apply flex;
+  @apply opacity-100;
 }
 
 .trending-card-bookmark {
@@ -68,7 +74,7 @@ const props = defineProps({
   stroke: theme("colors.dark");
 }
 
-.trending-card-checkbox:checked path {
+.trending-card-checkbox:checked + * path {
   fill: theme("colors.white");
 }
-</style>
+</style> -->
