@@ -13,7 +13,7 @@ console.log(props);
 </script>
 
 <template>
-  <article>
+  <article class="trending-card-ctrls">
     <div class="relative rounded-lg overflow-hidden">
       <img
         class="w-full"
@@ -27,7 +27,7 @@ console.log(props);
         )} 440w, ${$image(props.content.thumbnail.regular.large)} 560w`"
       />
       <div
-        class="trending-card-ctrls absolute inset-0 grid grid-rows-3 w-full h-full p-6 hover:bg-dark-op"
+        class="absolute inset-0 grid grid-rows-3 w-full h-full p-4 hover:bg-dark-op"
       >
         <!-- Bookmark / checkbox -->
         <label
@@ -50,12 +50,12 @@ console.log(props);
         <div></div>
       </div>
     </div>
-    <p class="text-neutral-1 text-[12px] font-sans font-light sm:text-base">
+    <p class="text-neutral-1 text-xs font-sans font-light sm:text-base">
       {{ props.content.year }}<span class="mx-2">&#183;</span
       >{{ props.content.category }}<span class="mx-2">&#183;</span
       >{{ props.content.rating }}
     </p>
-    <p class="text-white font-sans font-medium text-base sm:text-2xl">
+    <p class="text-white font-sans font-medium text-lg sm:text-2xl">
       {{ props.content.title }}
     </p>
   </article>

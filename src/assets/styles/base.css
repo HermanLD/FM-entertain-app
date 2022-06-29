@@ -35,11 +35,11 @@
   }
 }
 
-.trending-card-ctrls > button {
+.trending-card-ctrls button {
   @apply opacity-0;
 }
 
-.trending-card-ctrls:hover > button {
+.trending-card-ctrls:hover button {
   @apply opacity-100;
 }
 

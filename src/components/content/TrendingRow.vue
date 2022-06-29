@@ -8,9 +8,10 @@ const content = useContentStore();
 
 <template>
   <Swiper
+    class="mb-10"
     :slidesPerView="'auto'"
     :autoHeight="true"
-    :space-between="15"
+    :space-between="24"
     :pagination="{ clickable: true }"
   >
     <SwiperSlide

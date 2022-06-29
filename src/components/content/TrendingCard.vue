@@ -44,37 +44,15 @@ const isChecked = false;
       </button>
       <!-- Title & info -->
       <div class="justify-self-start self-end">
-        <p class="text-neutral-1 text-[12px] font-sans font-light sm:text-base">
+        <p class="text-neutral-1 text-base font-sans font-light sm:text-base">
           {{ props.content.year }}<span class="mx-2">&#183;</span
           >{{ props.content.category }}<span class="mx-2">&#183;</span
           >{{ props.content.rating }}
         </p>
-        <p class="text-white font-sans font-medium text-base sm:text-2xl">
+        <p class="text-white font-sans font-medium text-2xl sm:text-2xl">
           {{ props.content.title }}
         </p>
       </div>
     </div>
   </article>
 </template>
-
-<!-- <style>
-.trending-card-ctrls > button {
-  @apply opacity-0;
-}
-
-.trending-card-ctrls:hover > button {
-  @apply opacity-100;
-}
-
-.trending-card-bookmark {
-  @apply bg-dark-op hover:bg-white;
-}
-
-.trending-card-bookmark:hover path {
-  stroke: theme("colors.dark");
-}
-
-.trending-card-checkbox:checked + * path {
-  fill: theme("colors.white");
-}
-</style> -->
