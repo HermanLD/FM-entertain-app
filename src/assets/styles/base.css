@@ -2,6 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  html {
+    -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    scrollbar-width: none; /* for Firefox */
+    overflow-y: scroll;
+  }
+
+  html::-webkit-scrollbar {
+    display: none; /* for Chrome, Safari, and Opera */
+  }
+}
+
+@layer components {
+  .trending-card-ctrls button {
+    @apply opacity-0;
+  }
+
+  .trending-card-ctrls:hover button {
+    @apply opacity-100;
+  }
+
+  .trending-card-bookmark {
+    @apply bg-dark-op hover:bg-white;
+  }
+
+  .trending-card-bookmark:hover path {
+    stroke: theme("colors.dark");
+  }
+
+  .trending-card-checkbox:checked + * path {
+    fill: theme("colors.white");
+  }
+}
+
 @layer utilities {
   .header-lg,
   .header-m,
@@ -33,24 +67,4 @@
   .body-s {
     @apply text-xs;
   }
-}
-
-.trending-card-ctrls button {
-  @apply opacity-0;
-}
-
-.trending-card-ctrls:hover button {
-  @apply opacity-100;
-}
-
-.trending-card-bookmark {
-  @apply bg-dark-op hover:bg-white;
-}
-
-.trending-card-bookmark:hover path {
-  stroke: theme("colors.dark");
-}
-
-.trending-card-checkbox:checked + * path {
-  fill: theme("colors.white");
 }

@@ -11,7 +11,7 @@ const user = useUserStore();
 
 <template>
   <header
-    class="grid grid-cols-nav-mobile px-4 py-[1.125rem] bg-neutral-2 md:p-6 w-full lg:rounded-[20px] lg:p-10 lg:m-10 lg:w-auto lg:grid-cols-1 lg:grid-rows-nav-desktop"
+    class="sticky inset-0 z-50 self-center grid grid-cols-nav-mobile lg:h-[90%] px-4 py-[1.125rem] bg-neutral-2 md:p-6 w-full lg:static lg:rounded-[20px] lg:p-10 lg:w-auto lg:grid-cols-1 lg:grid-rows-nav-desktop lg:mx-10"
   >
     <a class="flex justify-center items-center mb-0 lg:mb-[4.687rem]" href="#0"
       ><img src="@/assets/logo.svg" alt="Brand logo"
