@@ -1,9 +1,13 @@
 <script setup>
-import { useContentStore } from "@/stores/content";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import TrendingCard from "./TrendingCard.vue";
 
-const content = useContentStore();
+const prop = defineProps({
+  trendingContent: {
+    type: Object,
+    default: undefined,
+  },
+});
 </script>
 
 <template>
@@ -15,7 +19,7 @@ const content = useContentStore();
     :pagination="{ clickable: true }"
   >
     <SwiperSlide
-      v-for="item in content.getTrendingList"
+      v-for="item in prop.trendingContent"
       class="w-[75%] lg:w-[40%]"
       :key="item._id"
     >
