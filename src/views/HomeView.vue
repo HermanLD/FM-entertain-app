@@ -14,7 +14,7 @@ const content = useContentStore();
       class="w-full max-h-full overflow-visible pb-7 lg:pb-10 lg:pt-16 lg:overflow-auto"
     >
       <!-- <SearchBar /> -->
-      <search-bar :content="content" />
+      <search-bar :content="content.getContentList" />
 
       <!-- <TrendingRow /> -->
       <h1
@@ -30,7 +30,7 @@ const content = useContentStore();
       >
         Recommended for you
       </h2>
-      <content-grid :content="content" />
+      <content-grid :content="content.getContentList" />
     </main>
   </MainLayout>
 </template>

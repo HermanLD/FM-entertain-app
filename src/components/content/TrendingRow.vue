@@ -5,7 +5,7 @@ import TrendingCard from "./TrendingCard.vue";
 const prop = defineProps({
   trendingContent: {
     type: Object,
-    default: undefined,
+    default: () => {},
   },
 });
 </script>

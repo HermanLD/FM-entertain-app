@@ -48,7 +48,6 @@ export const useContentStore = defineStore({
       const user = useUserStore();
 
       // ? - { id: "", newBookmarkState: false } = contentLoot
-      console.log(contentLoot);
       const newArr = [];
 
       this.contentList.forEach((el) => {
@@ -77,7 +76,6 @@ export const useContentStore = defineStore({
     },
     setContent(content) {
       this.contentList = content;
-      console.log(this.contentList);
     },
   },
 });

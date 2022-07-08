@@ -6,11 +6,12 @@ import SearchIcon from "@/components/icons/IconSearch.vue";
 const prop = defineProps({
   content: {
     type: Object,
-    default: undefined,
+    default: () => {},
   },
 });
 
-const searchQuery = ref(null);
+const searchQuery = ref("");
+const result = ref([]);
 
 const options = {
   includeScore: true,
@@ -20,12 +21,10 @@ const options = {
 
 const fuse = new Fuse(prop.content, options);
 
-const result = ref([]);
 watch(searchQuery, () => {
-  result.value = fuse.search(searchQuery);
+  const rslt = fuse.search(searchQuery.value);
+  result.value = rslt;
 });
-
-console.log(result);
 </script>
 
 <template>

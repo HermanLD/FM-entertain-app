@@ -9,7 +9,6 @@ const props = defineProps({
 });
 
 const isChecked = false;
-console.log(props);
 </script>
 
 <template>

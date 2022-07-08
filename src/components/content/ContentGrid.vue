@@ -4,7 +4,7 @@ import ContentCard from "./ContentCard.vue";
 const prop = defineProps({
   content: {
     type: Object,
-    default: undefined,
+    default: () => {},
   },
 });
 </script>
