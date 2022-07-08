@@ -22,8 +22,7 @@ const options = {
 const fuse = new Fuse(prop.content, options);
 
 watch(searchQuery, () => {
-  const rslt = fuse.search(searchQuery.value);
-  result.value = rslt;
+  result.value = fuse.search(searchQuery.value);
 });
 </script>
 
