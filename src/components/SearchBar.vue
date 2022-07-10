@@ -2,7 +2,9 @@
 import { ref, watch } from "vue";
 import Fuse from "fuse.js";
 import SearchIcon from "@/components/icons/IconSearch.vue";
+// import { computed } from "@vue/reactivity";
 
+const emit = defineEmits(["update:query", "update:result"]);
 const prop = defineProps({
   content: {
     type: Object,
@@ -11,23 +13,32 @@ const prop = defineProps({
 });
 
 const searchQuery = ref("");
-const result = ref([]);
+const searchResult = ref([]);
 
 const options = {
   includeScore: true,
-  // Search in `title` array
+  // Search in `title` key
   keys: ["title"],
 };
 
 const fuse = new Fuse(prop.content, options);
 
 watch(searchQuery, () => {
-  result.value = fuse.search(searchQuery.value);
+  const resultArray = [];
+  const rawResult = fuse.search(searchQuery.value);
+  rawResult.forEach((x) => {
+    resultArray.push(x.item);
+  });
+
+  searchResult.value = resultArray;
+
+  emit("update:query", searchQuery.value);
+  emit("update:result", searchResult.value);
 });
 </script>
 
 <template>
-  <section class="relative pr-9">
+  <section class="relative pr-9 pl-9 mt-8 lg:pl-0 lg:mt-0">
     <label class="flex gap-6 text-2xl">
       <search-icon></search-icon>
       <input
@@ -36,18 +47,5 @@ watch(searchQuery, () => {
         placeholder="Search for movies or TV series"
         class="pb-3.5 w-full body-m text-white placeholder:text-2xl focus:border-b caret-primary bg-transparent focus:border-neutral-1 focus:outline-none"
     /></label>
-
-    <!-- Search Grid -->
-    <!-- <div
-      v-if="modelValue.length > 0"
-      class="absolute left-0 top-full z-40 w-full min-h-screen"
-    >
-      <p>
-        Found {{ searchResults.length }} results for ‘{{ prop.modelValue }}’
-      </p>
-      <div>
-        Content Cards
-      </div>
-    </div> -->
   </section>
 </template>
