@@ -50,7 +50,6 @@ const bookmarking = async () => {
         </label>
         <!-- Overlay / Play Button -->
         <button
-          @click="bookmarking"
           class="flex items-center p-2.5 place-self-center rounded-full bg-white-op"
         >
           <IconPlay /><span class="inline-block mr-3 ml-5">Play</span>
