@@ -1,6 +1,9 @@
 <script setup>
 import IconBookmark from "@/components/icons/IconBookmark.vue";
 import IconPlay from "@/components/icons/IconPlay.vue";
+import { useContentStore } from "@/stores/content";
+
+const content = useContentStore();
 
 const props = defineProps({
   content: {
@@ -8,7 +11,12 @@ const props = defineProps({
   },
 });
 
-const isChecked = false;
+const bookmarking = async () => {
+  await content.bookmarkContent({
+    id: props.content._id,
+    newBookmarkState: !props.content.isBookmarked,
+  });
+};
 </script>
 
 <template>
@@ -33,14 +41,16 @@ const isChecked = false;
           class="trending-card-bookmark p-3 justify-self-end self-start rounded-full cursor-pointer"
         >
           <input
+            @click="bookmarking"
             class="trending-card-checkbox sr-only"
             type="checkbox"
-            :checked="isChecked"
+            :checked="props.content.isBookmarked"
           />
           <IconBookmark />
         </label>
         <!-- Overlay / Play Button -->
         <button
+          @click="bookmarking"
           class="flex items-center p-2.5 place-self-center rounded-full bg-white-op"
         >
           <IconPlay /><span class="inline-block mr-3 ml-5">Play</span>

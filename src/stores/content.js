@@ -45,6 +45,8 @@ export const useContentStore = defineStore({
       }
     },
     async bookmarkContent(contentLoot) {
+      console.log(contentLoot);
+
       const user = useUserStore();
 
       // ? - { id: "", newBookmarkState: false } = contentLoot
@@ -63,12 +65,14 @@ export const useContentStore = defineStore({
       if (contentLoot.newBookmarkState) {
         try {
           await user.addBookmark(contentLoot.id);
+          console.log(contentLoot.id);
         } catch (e) {
           console.log(e);
         }
       } else {
         try {
           await user.deleteBookmark(contentLoot.id);
+          console.log(contentLoot.id);
         } catch (e) {
           console.log(e);
         }
