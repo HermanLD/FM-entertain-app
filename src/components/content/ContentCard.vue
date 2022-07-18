@@ -20,7 +20,7 @@ const bookmarking = async () => {
 </script>
 
 <template>
-  <article class="trending-card-ctrls">
+  <article class="trending-card-ctrls max-w-[20rem]">
     <div class="relative rounded-lg overflow-hidden">
       <img
         class="w-full"

@@ -13,7 +13,7 @@ const queryResult = ref([]);
 </script>
 
 <template>
-  <MainLayout>
+  <main-layout>
     <main
       class="w-full max-h-full overflow-visible pb-7 lg:pb-10 lg:pt-16 lg:overflow-auto"
     >
@@ -51,5 +51,5 @@ const queryResult = ref([]);
         <content-grid :content="queryResult" />
       </div>
     </main>
-  </MainLayout>
+  </main-layout>
 </template>

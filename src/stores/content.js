@@ -12,9 +12,27 @@ export const useContentStore = defineStore({
   }),
   getters: {
     getContentList: (state) => state.contentList,
+    getMovieList: (state) => {
+      const newList = state.contentList.filter(
+        (content) => content.category === "Movie"
+      );
+      return newList;
+    },
+    getSeriesList: (state) => {
+      const newList = state.contentList.filter(
+        (content) => content.category === "TV Series"
+      );
+      return newList;
+    },
     getTrendingList: (state) => {
       const newList = state.contentList.filter(
         (content) => content.isTrending === true
+      );
+      return newList;
+    },
+    getBookmarkedList: (state) => {
+      const newList = state.contentList.filter(
+        (content) => content.isBookmarked === true
       );
       return newList;
     },
