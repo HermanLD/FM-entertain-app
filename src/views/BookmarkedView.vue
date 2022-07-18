@@ -1,14 +1,29 @@
 <script setup>
 import { ref, computed } from "vue";
+import { useRouter } from "vue-router";
+import { useUserStore } from "@/stores/user";
 import MainLayout from "@/components/layouts/MainLayout.vue";
 import SearchBar from "@/components/SearchBar.vue";
 import ContentGrid from "@/components/content/ContentGrid.vue";
 
 import { useContentStore } from "@/stores/content";
+
+const router = useRouter();
+const user = useUserStore();
 const content = useContentStore();
 
 const querySearch = ref("");
 const queryResult = ref([]);
+
+const logoutAllUsers = async () => {
+  try {
+    await user.logoutAll();
+
+    router.push({ name: "login" });
+  } catch (e) {
+    console.log(e);
+  }
+};
 
 const bookmarkedMovies = computed(() => {
   const newList = content.getBookmarkedList.filter(
@@ -83,6 +98,7 @@ const bookmarkedSeries = computed(() => {
         </p>
         <content-grid :content="queryResult" />
       </div>
+      <button class="text-primary" @click="logoutAllUsers">LOGOUT</button>
     </main>
   </main-layout>
 </template>
