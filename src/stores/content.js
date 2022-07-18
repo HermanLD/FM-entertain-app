@@ -11,6 +11,7 @@ export const useContentStore = defineStore({
     isLoading: false,
   }),
   getters: {
+    getContentLoading: (state) => state.isLoading,
     getContentList: (state) => state.contentList,
     getMovieList: (state) => {
       const newList = state.contentList.filter(

@@ -48,6 +48,7 @@ const bookmarkedSeries = computed(() => {
 <template>
   <main-layout>
     <main
+      v-if="!content.getContentLoading"
       class="w-full max-h-full overflow-visible pb-7 lg:pb-10 lg:pt-16 lg:overflow-auto"
     >
       <!-- <SearchBar /> -->
