@@ -99,7 +99,7 @@ const bookmarkedSeries = computed(() => {
         </p>
         <content-grid :content="queryResult" />
       </div>
-      <button class="text-primary" @click="logoutAllUsers">LOGOUT</button>
+      <button class="text-primary m-20" @click="logoutAllUsers">LOGOUT</button>
     </main>
   </main-layout>
 </template>

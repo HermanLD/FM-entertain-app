@@ -1,6 +1,11 @@
 <script setup>
 import IconBookmark from "@/components/icons/IconBookmark.vue";
 import IconPlay from "@/components/icons/IconPlay.vue";
+import IconCtgyMovie from "@/components/icons/IconCtgyMovie.vue";
+import IconCtgyTv from "@/components/icons/IconCtgyTv.vue";
+import { useContentStore } from "@/stores/content";
+
+const content = useContentStore();
 
 const props = defineProps({
   content: {
@@ -8,7 +13,12 @@ const props = defineProps({
   },
 });
 
-const isChecked = false;
+const bookmarking = async () => {
+  await content.bookmarkContent({
+    id: props.content._id,
+    newBookmarkState: !props.content.isBookmarked,
+  });
+};
 </script>
 
 <template>
@@ -30,9 +40,10 @@ const isChecked = false;
         class="trending-card-bookmark p-3 justify-self-end self-start rounded-full cursor-pointer"
       >
         <input
+          @click="bookmarking"
           class="trending-card-checkbox sr-only"
           type="checkbox"
-          :checked="isChecked"
+          :checked="props.content.isBookmarked"
         />
         <IconBookmark />
       </label>
@@ -46,8 +57,11 @@ const isChecked = false;
       <div class="justify-self-start self-end">
         <p class="text-neutral-1 text-base font-sans font-light sm:text-base">
           {{ props.content.year }}<span class="mx-2">&#183;</span
-          >{{ props.content.category }}<span class="mx-2">&#183;</span
-          >{{ props.content.rating }}
+          ><IconCtgyMovie
+            class="inline mr-2"
+            v-if="props.content.category === 'Movie'"
+          /><IconCtgyTv class="inline mr-2" v-else />{{ props.content.category
+          }}<span class="mx-2">&#183;</span>{{ props.content.rating }}
         </p>
         <p class="text-white font-sans font-medium text-2xl sm:text-2xl">
           {{ props.content.title }}

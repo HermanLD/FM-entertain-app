@@ -21,6 +21,6 @@ const prop = defineProps({
 
 <style>
 .content-grid {
-  grid-template-columns: repeat(auto-fit, minmax(17.5rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(17.5rem, 1fr));
 }
 </style>

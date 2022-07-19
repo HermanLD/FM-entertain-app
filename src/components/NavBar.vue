@@ -42,7 +42,9 @@ const user = useUserStore();
       </ul>
     </nav>
 
-    <div class="self-end w-10 h-10">
+    <div
+      class="self-end w-10 h-10 border-2 border-white border-solid rounded-full overflow-hidden"
+    >
       <img
         src="../assets/image-avatar.png"
         alt="Profile photo"
