@@ -5,7 +5,7 @@ import SearchBar from "@/components/SearchBar.vue";
 import TrendingRow from "@/components/content/TrendingRow.vue";
 import ContentGrid from "@/components/content/ContentGrid.vue";
 
-import { useContentStore } from "@/stores/content";
+import useContentStore from "@/stores/content";
 const content = useContentStore();
 
 const querySearch = ref("");

@@ -1,12 +1,12 @@
 <script setup>
 import { ref, computed } from "vue";
 import { useRouter } from "vue-router";
-import { useUserStore } from "@/stores/user";
+import useUserStore from "@/stores/user";
 import MainLayout from "@/components/layouts/MainLayout.vue";
 import SearchBar from "@/components/SearchBar.vue";
 import ContentGrid from "@/components/content/ContentGrid.vue";
 
-import { useContentStore } from "@/stores/content";
+import useContentStore from "@/stores/content";
 
 const router = useRouter();
 const user = useUserStore();

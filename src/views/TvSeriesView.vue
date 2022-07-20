@@ -4,7 +4,7 @@ import MainLayout from "@/components/layouts/MainLayout.vue";
 import SearchBar from "@/components/SearchBar.vue";
 import ContentGrid from "@/components/content/ContentGrid.vue";
 
-import { useContentStore } from "@/stores/content";
+import useContentStore from "@/stores/content";
 const content = useContentStore();
 
 const querySearch = ref("");

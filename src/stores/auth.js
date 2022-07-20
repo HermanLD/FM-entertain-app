@@ -2,7 +2,7 @@ import { defineStore } from "pinia";
 
 const localTokenName = import.meta.env.VITE_LOCALSTORE_TOKEN;
 
-export const useAuthStore = defineStore({
+export default defineStore({
   id: "auth",
   state: () => ({
     // TODO - switch to false for production

@@ -1,9 +1,9 @@
 import { defineStore } from "pinia";
-import { useAuthStore } from "./auth";
+import useAuthStore from "./auth";
 
 const url = import.meta.env.VITE_BACKEND_URL;
 
-export const useUserStore = defineStore({
+export default defineStore({
   id: "user",
   state: () => ({
     avatar: undefined,

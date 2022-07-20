@@ -3,7 +3,7 @@ import IconBookmark from "@/components/icons/IconBookmark.vue";
 import IconPlay from "@/components/icons/IconPlay.vue";
 import IconCtgyMovie from "@/components/icons/IconCtgyMovie.vue";
 import IconCtgyTv from "@/components/icons/IconCtgyTv.vue";
-import { useContentStore } from "@/stores/content";
+import useContentStore from "@/stores/content";
 
 const content = useContentStore();
 

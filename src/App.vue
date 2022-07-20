@@ -1,7 +1,7 @@
 <script setup>
 import { RouterView, useRouter } from "vue-router";
-import { useUserStore } from "@/stores/user";
-import { useContentStore } from "@/stores/content";
+import useUserStore from "@/stores/user";
+import useContentStore from "@/stores/content";
 import IconLogo from "./components/icons/IconLogo.vue";
 
 const user = useUserStore();

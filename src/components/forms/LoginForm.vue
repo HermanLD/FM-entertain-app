@@ -2,7 +2,7 @@
 import { useRouter } from "vue-router";
 import { useForm, useField } from "vee-validate";
 import { object, string } from "yup";
-import { useUserStore } from "@/stores/user";
+import useUserStore from "@/stores/user";
 
 import AppInput from "@/components/ui/AppInput.vue";
 import AppButton from "@/components/ui/AppButton.vue";

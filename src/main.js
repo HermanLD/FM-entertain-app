@@ -3,9 +3,12 @@ import { createPinia } from "pinia";
 import App from "./App.vue";
 import router from "./router";
 
-import useImage from "./utils/image-load";
 import "swiper/css";
 import "@/assets/styles/base.css";
+
+const useImage = (url) => {
+  return new URL(`/src/${url}`, import.meta.url).href;
+};
 
 const app = createApp(App);
 
@@ -16,3 +19,5 @@ app.use(router);
 app.config.globalProperties.$image = useImage;
 
 app.mount("#app");
+
+export default app;

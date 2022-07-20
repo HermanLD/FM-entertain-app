@@ -1,5 +1,5 @@
 <script setup>
-import ContentCard from "./ContentCard.vue";
+import ContentCard from "@/components/content/ContentCard.vue";
 
 const prop = defineProps({
   content: {

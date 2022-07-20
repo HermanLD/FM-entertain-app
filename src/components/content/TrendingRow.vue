@@ -1,6 +1,6 @@
 <script setup>
 import { Swiper, SwiperSlide } from "swiper/vue";
-import TrendingCard from "./TrendingCard.vue";
+import TrendingCard from "@/components/content/TrendingCard.vue";
 
 const prop = defineProps({
   trendingContent: {

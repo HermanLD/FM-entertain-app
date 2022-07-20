@@ -1,10 +1,10 @@
 import { defineStore } from "pinia";
-import { useAuthStore } from "./auth";
-import { useUserStore } from "./user";
+import useAuthStore from "./auth";
+import useUserStore from "./user";
 
 const url = import.meta.env.VITE_BACKEND_URL;
 
-export const useContentStore = defineStore({
+export default defineStore({
   id: "content",
   state: () => ({
     contentList: [],

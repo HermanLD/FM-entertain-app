@@ -4,7 +4,7 @@ import IconNavMovie from "@/components/icons/IconNavMovies.vue";
 import IconNavTv from "@/components/icons/IconNavTv.vue";
 import IconNavBookmark from "@/components/icons/IconNavBookmark.vue";
 
-import { useUserStore } from "@/stores/user";
+import useUserStore from "@/stores/user";
 
 const user = useUserStore();
 </script>
