@@ -41,12 +41,6 @@
 
 ![screenshot](https://learning-center.homesciencetools.com/wp-content/uploads/learn-about-gears-thumbnail.jpg)
 
-Introduce your projects by taking a screenshot or a gif. Try to tell visitors a story about your project by answering:
-
-- What was your experience?
-- What have you learned/improved?
-- Your wisdom? :)
-
 ### Built With
 
 <!-- This section should list any major frameworks that you built your project using. Here are a few examples.-->
@@ -64,10 +58,9 @@ This application/site was created as a submission to a [Frontend Mentor](https:/
 - View the optimal layout for the app depending on their device's screen size
 - See hover states for all interactive elements on the page
 - Navigate between Home, Movies, TV Series, and Bookmarked Shows pages
-- Add/Remove bookmarks from all movies and TV series
 - Search for relevant shows on all pages
-- Bonus: Build this project as a full-stack application
-- Bonus: If you're building a full-stack app, we provide authentication screen (sign-up/login) designs if you'd like to create an auth flow
+- Authentication (sign-up/login)
+- Add/Remove bookmarks from all movies and TV series
 
 ## How To Use
 
@@ -115,6 +108,7 @@ $ npm run lint
 - [“Everything Developers Need To Know About Figma” article on Smashing Magazine](https://www.smashingmagazine.com/2020/09/figma-developers-guide/)
 - ["Introduction to Figma for Developers" video with Ryan Warner and Jason Lengstorf on Learn with Jason](https://www.learnwithjason.dev/introduction-to-figma-for-developers)
 - [Replacement for require in Vuejs 3 with Vite for image array](https://stackoverflow.com/questions/70591125/replacement-for-require-in-vuejs-3-with-vite-for-image-array)
+- [The Complete Node.js Developer Course](https://www.udemy.com/course/the-complete-nodejs-developer-course-2/)
 - [Frontend Mentor](https://www.frontendmentor.io/)
 
 ## Contact
