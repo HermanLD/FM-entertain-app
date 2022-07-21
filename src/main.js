@@ -7,7 +7,9 @@ import "swiper/css";
 import "@/assets/styles/base.css";
 
 const useImage = (url) => {
-  return new URL(url, import.meta.url).href;
+  const newURL = new URL(`/src/${url}`, import.meta.url).href;
+  console.log(newURL);
+  // return new URL(`/src/${url}`, import.meta.url).href;
 };
 
 const app = createApp(App);
