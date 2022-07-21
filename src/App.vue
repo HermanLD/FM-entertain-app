@@ -1,22 +1,17 @@
 <script setup>
 import { RouterView } from "vue-router";
 import useContentStore from "@/stores/content";
-// import useUserStore from "@/stores/user";
+import useUserStore from "@/stores/user";
 import IconLogo from "./components/icons/IconLogo.vue";
 
 const content = useContentStore();
-// const user = useUserStore();
-// const router = useRouter();
+const user = useUserStore();
 
-// const initUserLogin = async () => {
-//   const isLogged = await user.initUserLogin();
-//   if (isLogged) {
-//     await content.loadContent();
-//     router.push({ name: "home" });
-//   } else
-// };
+const initUserLogin = async () => {
+  await user.initUserLogin();
+};
 
-// initUserLogin();
+initUserLogin();
 </script>
 
 <template>

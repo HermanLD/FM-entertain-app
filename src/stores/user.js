@@ -19,7 +19,8 @@ export default defineStore({
       const token = auth.checkAuthToken();
 
       try {
-        if (!token) throw new Error("No token!");
+        if (!token && auth.getLoginStatus)
+          throw new Error("Already logged in or No token!");
 
         const bearer = `Bearer ${token}`;
         const res = await fetch(`${url}/users/me`, {
