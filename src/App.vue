@@ -8,7 +8,10 @@ const content = useContentStore();
 const user = useUserStore();
 
 const initUserLogin = async () => {
-  await user.initUserLogin();
+  const isLogged = await user.initUserLogin();
+  if (isLogged) {
+    await content.loadContent();
+  }
 };
 
 initUserLogin();
