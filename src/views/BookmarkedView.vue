@@ -43,6 +43,8 @@ const bookmarkedSeries = computed(() => {
   }
   return newList;
 });
+
+content.loadContent();
 </script>
 
 <template>

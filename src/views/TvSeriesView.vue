@@ -9,6 +9,8 @@ const content = useContentStore();
 
 const querySearch = ref("");
 const queryResult = ref([]);
+
+content.loadContent();
 </script>
 
 <template>

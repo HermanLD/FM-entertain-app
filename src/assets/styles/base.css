@@ -35,36 +35,3 @@
     fill: theme("colors.white");
   }
 }
-
-@layer utilities {
-  .header-lg,
-  .header-m,
-  .body-m,
-  .body-s {
-    @apply font-sans font-light;
-  }
-
-  .header-s,
-  .header-xs {
-    @apply font-sans font-medium;
-  }
-
-  .header-lg {
-    @apply text-3xl;
-  }
-  .header-m {
-    @apply text-2xl;
-  }
-  .header-s {
-    @apply text-2xl;
-  }
-  .header-xs {
-    @apply text-lg;
-  }
-  .body-m {
-    @apply text-base;
-  }
-  .body-s {
-    @apply text-xs;
-  }
-}

@@ -5,12 +5,7 @@ import router from "./router";
 
 import "swiper/css";
 import "@/assets/styles/base.css";
-
-const useImage = (url) => {
-  const newURL = new URL(`/src${url}`, import.meta.url).href;
-  console.log(newURL);
-  return newURL;
-};
+import useImage from "@/utils/dyna-images.js";
 
 const app = createApp(App);
 
