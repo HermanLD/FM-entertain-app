@@ -70,12 +70,14 @@ const onSubmit = handleSubmit(async (values) => {
     <AppInput
       label="Password"
       name="password_signin"
+      inputType="password"
       v-model="password"
       :error-msg="passwordError"
     />
     <AppInput
       label="Repeat password"
       name="password_confirm_signin"
+      inputType="password"
       v-model="passwordConfirm"
       :error-msg="passwordConfirmError"
     />

@@ -65,6 +65,7 @@ const onSubmit = handleSubmit(async (values) => {
     <AppInput
       label="Password"
       name="password_login"
+      inputType="password"
       v-model="password"
       :error-msg="passwordError"
     />

@@ -31,7 +31,7 @@ content.loadContent();
         <h1
           class="mt-5 mb-6 text-white font-sans font-light text-[1.25rem] sm:text-3xl"
         >
-          Movies
+          TV Series
         </h1>
         <content-grid :content="content.getSeriesList" />
       </div>
