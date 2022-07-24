@@ -11,7 +11,7 @@ const router = useRouter();
 const initUserLogin = async () => {
   const isLogged = await user.initUserLogin();
   if (isLogged) {
-    router.push({ name: "Home" });
+    router.push({ name: "home" });
   }
 };
 

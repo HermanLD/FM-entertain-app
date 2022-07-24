@@ -1,5 +1,3 @@
-export default (url) => {
-  const newURL = new URL(`/src/${url}`, import.meta.url).href;
-  console.log(newURL);
-  return newURL;
+export default (imgUrl) => {
+  return new URL(`/src/assets/${imgUrl}`, import.meta.url).href;
 };
