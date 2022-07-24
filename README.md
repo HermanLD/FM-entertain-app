@@ -19,6 +19,10 @@
     <a href="https://www.frontendmentor.io/challenges/entertainment-web-app-J-UhgAW1X">
       Challenge
     </a>
+    <span> | </span>
+    <a href="https://github.com/HermanLD/entertainment-app-api">
+      Backend
+    </a>
   </h3>
 </div>
 
@@ -35,13 +39,9 @@
 - [Acknowledgements](#acknowledgements)
 - [Contact](#contact)
 
-<!-- OVERVIEW -->
-
-## Overview
-
-![screenshot](https://learning-center.homesciencetools.com/wp-content/uploads/learn-about-gears-thumbnail.jpg)
-
 ### Built With
+
+![screenshot](./public/entertainment-app.png)
 
 <!-- This section should list any major frameworks that you built your project using. Here are a few examples.-->
 
