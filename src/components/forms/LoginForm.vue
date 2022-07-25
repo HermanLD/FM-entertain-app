@@ -47,6 +47,18 @@ const onSubmit = handleSubmit(async (values) => {
     resetForm();
   }
 });
+
+const testLogin = async () => {
+  try {
+    await user.logInUser({ email: "fm-test@test.com", password: "qwerty1234" });
+    resetForm();
+
+    router.push({ name: "home" });
+  } catch (e) {
+    alert(e);
+    resetForm();
+  }
+};
 </script>
 
 <template>
@@ -74,5 +86,15 @@ const onSubmit = handleSubmit(async (values) => {
       Don't have an account?
       <router-link to="/sign-up" class="text-primary"> Sign up</router-link>
     </p>
+    <button
+      class="text-primary text-center w-full mt-4 hover:text-white"
+      @click.prevent="testLogin"
+    >
+      Press for Demo Account
+    </button>
+    <!-- <p class="inline-block mt-4 w-full text-xs text-center">
+      <span class="mr-2">EMAIL: fm-test@test.com</span>
+      <span>PASSWORD: qwerty1234</span>
+    </p> -->
   </form>
 </template>
