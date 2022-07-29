@@ -1,9 +1,6 @@
 <script setup>
-import { ref } from "vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import TrendingCard from "@/components/content/TrendingCard.vue";
-// import IconSliderStart from "@/components/icons/IconSliderNavStart.vue";
-// import IconSliderEnd from "@/components/icons/IconSliderNavEnd.vue";
 
 const prop = defineProps({
   trendingContent: {
@@ -11,23 +8,6 @@ const prop = defineProps({
     default: () => {},
   },
 });
-
-// start, middle, end
-const sliderState = ref("start");
-
-const toggleSliderState = (newState) => (sliderState.value = newState);
-
-// const showStartNav = computed(() => {
-//   if (sliderState.value === "start" || sliderState.value === "middle") {
-//     return true;
-//   }
-//   return false;
-// });
-// const showEndNav = computed(() => {
-//   if (sliderState.value === "end" || sliderState.value === "middle")
-//     return true;
-//   return false;
-// });
 </script>
 
 <template>
@@ -37,9 +17,6 @@ const toggleSliderState = (newState) => (sliderState.value = newState);
       :autoHeight="true"
       :space-between="24"
       :pagination="{ clickable: true }"
-      @fromEdge="toggleSliderState('middle')"
-      @reachBeginning="toggleSliderState('start')"
-      @reachEnd="toggleSliderState('end')"
     >
       <SwiperSlide
         v-for="item in prop.trendingContent"
@@ -49,15 +26,5 @@ const toggleSliderState = (newState) => (sliderState.value = newState);
         <TrendingCard :content="item"></TrendingCard>
       </SwiperSlide>
     </Swiper>
-    <!-- <div
-        class="absolute pointer-events-none inset-0 z-20 flex justify-between items-center w-screen h-full"
-      >
-        <div class="w-12">
-          <IconSliderStart v-show="!showStartNav" />
-        </div>
-        <div class="w-12">
-          <IconSliderEnd v-show="showEndNav" />
-        </div>
-      </div> -->
   </div>
 </template>
